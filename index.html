@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Immobilienverwaltung Köln – WEG-, Miet- &amp; Sondereigentumsverwaltung | KMS</title>
-<meta name="description" content="KMS Immobilienverwaltung in Köln: WEG-Verwaltung, Mietverwaltung und Sondereigentumsverwaltung mit festen Ansprechpartnern, transparenten Abläufen und über 25 Jahren Erfahrung.">
+<meta name="description" content="KMS Immobilienverwaltung in Köln: WEG-Verwaltung, Mietverwaltung und Sondereigentumsverwaltung seit 1999: feste Ansprechpartner, transparente Abläufe und digitale Prozesse.">
 <link rel="canonical" href="https://kms.koeln/">
 <meta name="robots" content="index, follow, max-image-preview:large">
 <meta name="theme-color" content="#26282B">
@@ -27,6 +27,7 @@
 {
   "@context": "https://schema.org",
   "@type": "ProfessionalService",
+  "foundingDate": "1999",
   "@id": "https://kms.koeln/#organization",
   "name": "KMS Immobilienverwaltung",
   "description": "Immobilienverwaltung in Köln: WEG-Verwaltung, Mietverwaltung und Sondereigentumsverwaltung.",
@@ -244,7 +245,8 @@ button.link{background-color:transparent;padding-inline:0}
 .intro{position:relative;z-index:2;background:var(--paper);padding:clamp(96px,14vw,200px) 0 clamp(80px,10vw,150px)}
 .intro-grid{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));column-gap:clamp(12px,1.6vw,24px)}
 .intro-label{grid-column:1/3;margin:.8em 0 0;color:var(--brass-ink)}
-.intro-text{grid-column:3/12;font:300 clamp(1.55rem,3vw,3rem)/1.2 var(--display);letter-spacing:-.015em;margin:0;text-wrap:pretty}
+.intro-head{grid-column:3/12;font-size:clamp(2.2rem,4.4vw,4.6rem);line-height:1.04;color:var(--ink);margin:0 0 clamp(36px,4vw,60px)}
+.intro-text{grid-column:3/12;font:300 clamp(1.35rem,2.4vw,2.4rem)/1.25 var(--display);letter-spacing:-.015em;margin:0;text-wrap:pretty}
 .intro-text em{font:400 1.08em/1 var(--serif);font-style:normal;color:var(--gold);letter-spacing:-.01em}
 .js .intro-text .w{opacity:.16;transition:opacity .6s var(--ease)}
 .js .intro-text .w.on{opacity:1}
@@ -254,7 +256,7 @@ button.link{background-color:transparent;padding-inline:0}
 .facts dd{margin:0}
 .facts strong{display:block;font:400 clamp(2.6rem,4.4vw,4.4rem)/1 var(--serif);color:var(--gold);letter-spacing:-.02em;margin-bottom:12px}
 .facts span{font-size:15px;color:var(--ink-2);display:block;max-width:14em}
-@media (max-width:900px){.intro-label,.intro-text{grid-column:1/-1}.intro-label{margin-bottom:22px}.facts{grid-template-columns:1fr 1fr}}
+@media (max-width:900px){.intro-label,.intro-head,.intro-text{grid-column:1/-1}.intro-label{margin-bottom:22px}.facts{grid-template-columns:1fr 1fr}}
 
 /* ============ Signatur: Schnitt A–A ============ */
 .sig{position:relative;z-index:2;background:var(--green);color:var(--on-green)}
@@ -689,7 +691,7 @@ legend:focus{outline:none}
   <div class="hero-dim" id="heroDim" aria-hidden="true"></div>
   <div class="hero-in">
     <div class="hero-top">
-      <p class="mono hero-kicker fade">Köln · WEG · Miete · Sondereigentum · seit über 25 Jahren</p>
+      <p class="mono hero-kicker fade">Köln · WEG · Miete · Sondereigentum · seit 1999</p>
       <p class="hero-claim voice"><span class="ln"><span>Wir verwalten Werte.</span></span><span class="ln"><span>Und kennen die Menschen dahinter.</span></span></p>
       <div class="hero-ctas fade">
         <a class="btn btn-light magnetic" href="#anfrage">Verwaltung anfragen <span class="arr" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M2 9h13M10 4l5 5-5 5"/></svg><svg width="14" height="14" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M2 9h13M10 4l5 5-5 5"/></svg></span></a>
@@ -712,11 +714,11 @@ legend:focus{outline:none}
   <div class="wrap">
     <div class="intro-grid">
       <p class="mono intro-label">Profil</p>
-      <h2 class="sr-only" id="intro-title">Über KMS</h2>
-      <p class="intro-text" id="introText">Seit über 25 Jahren verwalten wir in Köln Eigentümer&shy;gemeinschaften, Mietshäuser und Gewerbe. Mit einem festen Ansprech&shy;partner für jedes Haus, Zahlen, die man ohne Rückfrage versteht, und einem Büro, das man <em>persönlich</em> erreicht.</p>
+      <h2 class="intro-head voice rv" id="intro-title">Seit 1999. Heute digital. Morgen zukunfts&shy;orientiert.</h2>
+      <p class="intro-text" id="introText">Seit über 25 Jahren verwalten wir in Köln Eigentümer&shy;gemeinschaften, Mietshäuser und Gewerbe. Diese Erfahrung verbinden wir mit digitalen Lösungen auf dem Stand der Digitalisierung 4.0, für eine effiziente, transparente und <em>persönliche</em> Verwaltung mit festem Ansprech&shy;partner für jedes Haus.</p>
     </div>
     <dl class="facts">
-      <div class="rv"><dt class="mono">Erfahrung</dt><dd><strong>25+</strong><span>Jahre in der Immobilienverwaltung</span></dd></div>
+      <div class="rv"><dt class="mono">Gegründet</dt><dd><strong>1999</strong><span>über 25 Jahre Erfahrung in der Immobilienverwaltung</span></dd></div>
       <div class="rv"><dt class="mono">Zuständigkeit</dt><dd><strong>1</strong><span>fester Ansprechpartner für Ihr Objekt</span></dd></div>
       <div class="rv"><dt class="mono">Erreichbarkeit</dt><dd><strong>24/7</strong><span>für Meldungen per E-Mail</span></dd></div>
       <div class="rv"><dt class="mono">Standort</dt><dd><strong>Köln</strong><span>Büro in der Leonhardsgasse</span></dd></div>
@@ -734,7 +736,7 @@ legend:focus{outline:none}
         <div class="sn is-on" data-s="-1"><h2 class="voice sn-big" id="sig-title">Wir sehen nicht nur ein Gebäude.</h2></div>
         <div class="sn" data-s="0"><p class="mono">01 / 05 · Fundament</p><h3>Recht ist das Fundament.</h3><p>Beschlüsse, Verträge und Fristen nach aktuellem WEG- und Mietrecht. Sauber dokumentiert, damit nichts auf Sand gebaut ist.</p></div>
         <div class="sn" data-s="1"><p class="mono">02 / 05 · Tragwerk</p><h3>Zahlen tragen das Haus.</h3><p>Wirtschaftsplan, Hausgeld, Rücklagen und Abrechnungen. So aufbereitet, dass Sie sie ohne Rückfrage verstehen.</p></div>
-        <div class="sn" data-s="2"><p class="mono">03 / 05 · Leitungen</p><h3>Informationen fließen.</h3><p>Ein fester Ansprechpartner, kurze Wege, eine direkte Nummer. Meldungen werden erfasst, weitergegeben und dokumentiert.</p></div>
+        <div class="sn" data-s="2"><p class="mono">03 / 05 · Leitungen</p><h3>Informationen fließen.</h3><p>Ein fester Ansprechpartner, kurze Wege und digitale Abläufe. Meldungen werden erfasst, weitergegeben und dokumentiert.</p></div>
         <div class="sn" data-s="3"><p class="mono">04 / 05 · Fassade</p><h3>Wir planen, bevor es teuer wird.</h3><p>Begehungen, Wartung und ein Instandhaltungsplan über Jahre. Handwerker werden beauftragt, gesteuert und kontrolliert.</p></div>
         <div class="sn" data-s="4"><p class="mono">05 / 05 · Dach</p><h3>Was darunter liegt, bleibt geschützt.</h3><p>Solide Rücklagen und vorausschauende Entscheidungen erhalten den Wert Ihrer Immobilie. Über Jahrzehnte.</p></div>
         <div class="sn sn-final" data-s="5"><p class="voice sn-big">Wir sehen, was es trägt.</p><p>Recht, Finanzen, Kommunikation, Instandhaltung und Werterhalt, zusammen gedacht. Und für jedes Haus ein fester Ansprechpartner, der es kennt.</p><a class="link" href="#leistungen">Zu den Leistungen</a></div>
