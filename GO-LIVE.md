@@ -22,6 +22,8 @@ Alternative `mode: 'endpoint'` (Formspree, CRM-Webhook): `endpoint` setzen, gese
 - Optionales Statement Serkan Yetim (Vorschlag nur als HTML-Kommentar, nicht sichtbar).
 - Optionales Statement Klaus M. Koke (Vorschlag nur als HTML-Kommentar, nicht sichtbar).
 - Finale Teamfotos bestätigen.
+- Abteilungs-E-Mails bestätigen (aus Kunden-Screenshot übernommen): info@, kontakt@, service@, payment@kms.koeln.
+- Logo als Originaldatei (SVG/PNG) liefern – aktuell aus einem Screenshot freigestellt.
 
 ## 2b. Weitere Inhalte bestätigen
 
