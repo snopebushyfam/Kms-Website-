@@ -646,7 +646,7 @@ legend:focus{outline:none}
 
 /* ============ Art (SVG-Rückfall + Fotos) ============ */
 .art svg{width:100%;height:100%}
-.art img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;filter:saturate(.82) sepia(.08) contrast(1.03)}
+.art img{-webkit-user-drag:none;user-select:none;position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;filter:saturate(.82) sepia(.08) contrast(1.03)}
 .tp .art img,.p-photo .art img{filter:saturate(.9)}
 .k-stone{fill:var(--f-stone)}.k-stone-d{fill:var(--f-stone-d)}.k-sand{fill:var(--f-sand)}.k-sand-d{fill:var(--f-sand-d)}
 .k-white{fill:var(--f-white)}.k-white-d{fill:var(--f-white-d)}.k-dark{fill:var(--f-dark)}.k-glass{fill:var(--glass)}
@@ -1372,7 +1372,7 @@ function paint(el) {
   // Foto laden; schlägt es fehl, bleibt die Illustration als Rückfall
   const img = new Image();
   img.alt = el.closest('[aria-hidden="true"]') ? '' : im.alt;
-  img.decoding = 'async';
+  img.decoding = 'async'; img.draggable = false;
   if (el.hasAttribute('data-eager')) img.fetchPriority = 'high';
   img.onload = () => { el.innerHTML = ''; el.appendChild(img); el.classList.add('has-photo'); };
   img.onerror = () => { if (!el.classList.contains('has-photo')) paintSvg(el); };
@@ -1641,7 +1641,9 @@ w.addEventListener('pointermove', e => {
   if (Math.abs(dx) > 5) moved = true;
   if (moved) w.scrollTo(0, drag.y - dx * 1.4);
 });
-w.addEventListener('pointerup', () => { drag = null; setTimeout(() => moved = false, 0); });
+const endDrag = () => { drag = null; setTimeout(() => moved = false, 0); };
+w.addEventListener('pointerup', endDrag); w.addEventListener('pointercancel', endDrag);
+track.addEventListener('dragstart', e => e.preventDefault());
 track.addEventListener('click', e => { if (moved) { e.preventDefault(); e.stopPropagation(); } }, true);
 // Cursor: „Ansehen“ über Bildern, „Ziehen“ dazwischen
 const cur = $('#gCursor');
