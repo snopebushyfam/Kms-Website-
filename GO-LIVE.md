@@ -9,8 +9,8 @@ Die Seite läuft auf Netlify, deshalb ist Netlify Forms der einfachste Weg: kein
 1. **HTML:** In `index.html` im Skriptabschnitt „Anfrage-Strecke“ ändern:
    `const FORM_CONFIG = { mode: 'none', …` → `mode: 'netlify'`. Committen, Netlify deployt automatisch.
 2. **Netlify-Dashboard:** Projekt → *Forms* → „Enable form detection“ aktivieren. Danach **einmal neu deployen**, erst dann wird das Formular `anfrage` erkannt und erscheint unter *Forms*.
-3. **Benachrichtigung:** Projekt → *Forms* → *Form notifications* → „Add notification“ → *Email notification* → Formular `anfrage` → E-Mail `kontakt@kms.koeln`.
-4. **Echter Test:** Auf der veröffentlichten Seite eine Anfrage absenden. Prüfen: (a) Erfolgsmeldung erscheint, (b) Eintrag unter *Forms → anfrage → Submissions*, (c) E-Mail kommt bei kontakt@kms.koeln an (auch Spam-Ordner).
+3. **Benachrichtigung:** Projekt → *Forms* → *Form notifications* → „Add notification“ → *Email notification* → Formular `anfrage` → E-Mail `info@kms.koeln`.
+4. **Echter Test:** Auf der veröffentlichten Seite eine Anfrage absenden. Prüfen: (a) Erfolgsmeldung erscheint, (b) Eintrag unter *Forms → anfrage → Submissions*, (c) E-Mail kommt bei info@kms.koeln an (auch Spam-Ordner).
 
 Bis dieser Test erfolgreich war, gilt der Versand **nicht** als produktionsbereit. Im Modus `none` wird nichts versendet und kein Erfolg angezeigt; Besucher erhalten den E-Mail-/Telefon-Hinweis.
 
