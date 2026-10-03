@@ -1728,7 +1728,7 @@ if (mqFine.matches) $$('.magnetic').forEach(el => {
                      Benachrichtigung an info@kms.koeln einrichten).
    mode 'endpoint' → eigener Endpunkt (z. B. Formspree, CRM-Webhook), POST als JSON an `endpoint`.
    Erfolg wird nur angezeigt, wenn der Server den Eingang bestätigt (HTTP 2xx). */
-const FORM_CONFIG = { mode: 'none', endpoint: '', timeout: 15000 };
+const FORM_CONFIG = { mode: 'netlify', endpoint: '', timeout: 15000 };
 const form = $('#inqForm'), fsets = $$('fieldset', form);
 const bNext = $('#fNext'), bBack = $('#fBack'), bSubmit = $('#fSubmit');
 const fStatus = $('#fStatus'), fStatusText = $('#fStatusText'), fMail = $('#fMail');

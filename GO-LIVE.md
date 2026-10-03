@@ -7,7 +7,7 @@ Stand: Übergabe nach Final Polish. Die Seite besteht aus einer Datei (`index.ht
 Die Seite läuft auf Netlify, deshalb ist Netlify Forms der einfachste Weg: kein externer Dienst, kein API-Key. Das Formular ist dafür vorbereitet (`name="anfrage"`, `data-netlify="true"`, Honeypot `bot-field`, verstecktes Feld `form-name`).
 
 1. **HTML:** In `index.html` im Skriptabschnitt „Anfrage-Strecke“ ändern:
-   `const FORM_CONFIG = { mode: 'none', …` → `mode: 'netlify'`. Committen, Netlify deployt automatisch.
+   `mode ist auf 'netlify' gestellt (erledigt).
 2. **Netlify-Dashboard:** Projekt → *Forms* → „Enable form detection“ aktivieren. Danach **einmal neu deployen**, erst dann wird das Formular `anfrage` erkannt und erscheint unter *Forms*.
 3. **Benachrichtigung:** Projekt → *Forms* → *Form notifications* → „Add notification“ → *Email notification* → Formular `anfrage` → E-Mail `info@kms.koeln`.
 4. **Echter Test:** Auf der veröffentlichten Seite eine Anfrage absenden. Prüfen: (a) Erfolgsmeldung erscheint, (b) Eintrag unter *Forms → anfrage → Submissions*, (c) E-Mail kommt bei info@kms.koeln an (auch Spam-Ordner).
