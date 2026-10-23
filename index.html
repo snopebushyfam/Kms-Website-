@@ -636,10 +636,11 @@ legend:focus{outline:none}
 .f-cols a{color:var(--on-green);text-decoration:none}
 .f-cols a:hover{text-decoration:underline;text-underline-offset:3px}
 .f-word{display:block;margin:clamp(64px,9vw,130px) 0 18px;line-height:.74;user-select:none;color:var(--on-green);opacity:.1}
-.f-word .fit{display:inline-block;white-space:nowrap;font:600 30vw/.74 var(--display);letter-spacing:-.04em}
-.f-word .g{color:var(--brass)}
+.f-word svg{display:block;width:100%;height:auto;--logo-ink:var(--on-green)}
 .f-bottom{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;color:var(--on-green-muted);padding-top:20px}
 .f-bottom a{color:var(--on-green-muted)}
+.f-credit a{color:var(--on-green);text-decoration:none;border-bottom:1px solid rgba(201,164,109,.6);padding-bottom:1px;transition:color .3s,border-color .3s}
+.f-credit a:hover{color:var(--brass);border-color:var(--brass)}
 @media (max-width:900px){.f-claim,.f-cols{grid-column:1/-1}}
 
 /* ============ Reveal ============ */
@@ -1086,9 +1087,10 @@ legend:focus{outline:none}
         </div>
       </div>
     </div>
-    <div class="f-word" aria-hidden="true"><span class="fit" data-fit>KM<span class="g">S</span></span></div>
+    <div class="f-word" aria-hidden="true"><svg viewBox="62 2 552 218" focusable="false"><use href="#kmsLogo" width="680" height="343"/></svg></div>
     <div class="f-bottom mono">
       <span>© 2026 KMS Immobilienverwaltung, Köln</span>
+      <span class="f-credit">Powered by <a href="https://bushyfam.studio" target="_blank" rel="noopener">Bushyfam Studios</a></span>
       <span><a href="https://kms.koeln/impressum/">Impressum</a> &nbsp; <a href="https://kms.koeln/datenschutzerklaerung/">Datenschutz</a></span>
     </div>
   </div>
