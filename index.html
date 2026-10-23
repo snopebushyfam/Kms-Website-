@@ -1484,10 +1484,10 @@ function measureFly() {
   flyLogo.classList.add('is-ready');
 }
 const easeIO = t => t < .5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
-function flyRender(p) {
-  const docked = p >= .999;
+function flyDock(docked) {
   if (docked !== flyDocked) { flyDocked = docked; nav.classList.toggle('logo-docked', docked); flyLogo.classList.toggle('is-docked', docked); }
-  if (docked) return;
+}
+function flyMatrix(p) {
   // Bogenflug: zuerst nach oben, dann nach links – so kreuzt das Logo den Claim nicht
   const e = easeIO(p), shrink = 1 - Math.pow(1 - p, 3);
   // Handy: erst nach oben, dann nach links. Desktop: gerade Linie, das Logo schrumpft zuerst,
@@ -1497,7 +1497,28 @@ function flyRender(p) {
   const x = flyFrom.x + (flyTo.x - flyFrom.x) * ex, yy = flyFrom.y + (flyTo.y - flyFrom.y) * ey;
   // Größe schrumpft im gleichen Takt wie der Aufstieg – so ist das Logo klein, bevor es die Navigation erreicht
   const sc = 1 + (flyTo.w / flyFrom.w - 1) * (wide ? shrink : ey * .65 + e * .35);
-  flyLogo.style.transform = `translate3d(${x.toFixed(2)}px,${yy.toFixed(2)}px,0) scale(${sc.toFixed(5)})`;
+  return `translate3d(${x.toFixed(2)}px,${yy.toFixed(2)}px,0) scale(${sc.toFixed(5)})`;
+}
+function flyRender(p) {
+  const docked = p >= .999;
+  flyDock(docked);
+  if (!docked) flyLogo.style.transform = flyMatrix(p);
+}
+/* Bevorzugt: native scroll-gebundene Animation (läuft im Compositor, absolut synchron
+   zum Scrollen, auch bei iOS-Momentum). Der JS-Weg bleibt als Rückfall. */
+const flyNative = !!(w.CSS && CSS.supports('animation-timeline: scroll()'));
+let flyStyle = null;
+function flyBuildNative() {
+  if (!flyStyle) { flyStyle = d.createElement('style'); d.head.appendChild(flyStyle); }
+  let kf = '@keyframes kmsFly{';
+  for (let i = 0; i <= 20; i++) kf += `${i * 5}%{transform:${flyMatrix(i / 20)}}`;
+  flyStyle.textContent = kf + '}';
+  const dist = Math.round(flyVH * .55);
+  flyLogo.style.transform = '';
+  flyLogo.style.animation = 'none'; void flyLogo.offsetWidth;
+  flyLogo.style.animation = 'kmsFly linear both';
+  flyLogo.style.animationTimeline = 'scroll(root block)';
+  flyLogo.style.animationRange = `0px ${dist}px`;
 }
 // Weiche Nachführung: das Logo folgt dem Scrollen mit leichter Trägheit,
 // dadurch kein Ruckeln bei ungleichmäßigen Scroll-Events (iOS-Momentum).
@@ -1510,6 +1531,7 @@ function flyLoop() {
 }
 function flyUpdate(y, instant) {
   if (!flyFrom) return;
+  if (flyNative && !reduced) { flyDock(y >= flyVH * .55 - 1); return; }
   // Referenzhöhe bleibt stabil, auch wenn Safari beim Scrollen die Leisten ein-/ausblendet
   flyTarget = clamp(y / (flyVH * .55), 0, 1);
   if (instant) { flyCur = flyTarget; flyRender(flyCur); return; }
@@ -1898,7 +1920,7 @@ function onResize() {
   vh = w.innerHeight;
   if (w.innerWidth !== lastW) { lastW = w.innerWidth; fitAll(); }
   measureGallery();
-  if (w.innerWidth !== lastFlyW || !flyFrom) { lastFlyW = w.innerWidth; flyVH = w.innerHeight; nav.classList.remove('is-hidden'); measureFly(); flyUpdate(w.scrollY, true); }
+  if (w.innerWidth !== lastFlyW || !flyFrom) { lastFlyW = w.innerWidth; flyVH = w.innerHeight; nav.classList.remove('is-hidden'); measureFly(); if (flyNative && !reduced) flyBuildNative(); flyUpdate(w.scrollY, true); }
   docH = Math.max(1, d.documentElement.scrollHeight - vh);
   frame();
 }
