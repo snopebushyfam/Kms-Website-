@@ -465,13 +465,15 @@ dialog::backdrop{background:rgba(22,23,25,.86)}
 .dlg-in{padding:clamp(28px,5vw,64px)}
 .dlg h2{font:400 clamp(2rem,3.4vw,3rem)/1.05 var(--serif);letter-spacing:-.015em;margin-bottom:18px;padding-right:56px}
 .dlg h3{font:500 11px/1.4 var(--display);letter-spacing:.16em;text-transform:uppercase;color:var(--muted);margin:34px 0 8px}
+.imp-ul{margin:0 0 14px;padding-left:18px;list-style:disc;color:var(--ink-2)}
+.dlg .imp-ul li{padding:2px 0;border:0}
 .imp p{margin:0 0 14px;color:var(--ink-2);line-height:1.65}
 .imp strong{font-weight:500;color:var(--ink)}
 .imp a{color:var(--ink)}
 .dlg li{padding:10px 0;border-bottom:1px solid var(--line)}
 .dlg-close{position:absolute;top:16px;right:16px;z-index:2;background:var(--paper)}
 
-@media (max-width:640px){.dlg{width:100vw;max-height:100svh;height:100svh}}
+@media (max-width:640px){.dlg{width:100vw;max-height:100svh;height:100svh}.dlg h2{font-size:1.75rem;padding-right:64px;hyphens:auto}}
 
 /* ============ Team ============ */
 .team{position:relative;z-index:2;background:var(--green);color:var(--on-green)}
@@ -1027,7 +1029,7 @@ legend:focus{outline:none}
               <div class="field f-full"><label for="f-mail">E-Mail *</label><input id="f-mail" name="email" type="email" autocomplete="email" required aria-describedby="err-mail"><p class="err" id="err-mail"></p></div>
               <div class="field f-full"><label for="f-msg">Nachricht</label><textarea id="f-msg" name="nachricht" placeholder="Was sollten wir vorab wissen?"></textarea></div>
               <div class="f-full">
-                <label class="consent"><input type="checkbox" name="einwilligung" id="f-consent" required aria-describedby="err-consent"><span>Ich bin einverstanden, dass meine Angaben zur Bearbeitung der Anfrage gespeichert und verarbeitet werden. Die Einwilligung kann ich jederzeit widerrufen. Details in der <a href="https://kms.koeln/datenschutzerklaerung/">Datenschutzerklärung</a>. *</span></label>
+                <label class="consent"><input type="checkbox" name="einwilligung" id="f-consent" required aria-describedby="err-consent"><span>Ich bin einverstanden, dass meine Angaben zur Bearbeitung der Anfrage gespeichert und verarbeitet werden. Die Einwilligung kann ich jederzeit widerrufen. Details in der <a href="#datenschutz" data-dialog="tpl-datenschutz">Datenschutzerklärung</a>. *</span></label>
                 <p class="err" id="err-consent"></p>
               </div>
             </div>
@@ -1097,7 +1099,7 @@ legend:focus{outline:none}
     <div class="f-bottom mono">
       <span>© 2026 KMS Immobilienverwaltung, Köln</span>
       <span class="f-credit">Powered by <a href="https://bushyfam.studio" target="_blank" rel="noopener">Bushyfam Studios</a></span>
-      <span><a href="#impressum" data-dialog="tpl-impressum">Impressum</a> &nbsp; <a href="https://kms.koeln/datenschutzerklaerung/">Datenschutz</a></span>
+      <span><a href="#impressum" data-dialog="tpl-impressum">Impressum</a> &nbsp; <a href="#datenschutz" data-dialog="tpl-datenschutz">Datenschutz</a></span>
     </div>
   </div>
 </footer>
@@ -1144,6 +1146,65 @@ legend:focus{outline:none}
     <p>Eine Umsatzsteuer-Identifikationsnummer gemäß § 27a UStG wurde beantragt und wird nach Erteilung ergänzt.</p>
     <h3>Verbraucherstreitbeilegung</h3>
     <p>Wir sind weder bereit noch verpflichtet, an Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle teilzunehmen.</p>
+  </div>
+</template>
+<template id="tpl-datenschutz">
+  <h2 id="dlgTitle">Datenschutzerklärung</h2>
+  <div class="imp">
+    <h3>1. Verantwortlicher</h3>
+    <p>KMS Immobilienverwaltung</p>
+    <p>Serkan Yetim<br>Leonhardsgasse 10<br>50859 Köln<br>Telefon: 0221/768<br>E-Mail: <a href="mailto:info@kms.koeln">Info@kms.koeln</a></p>
+    <h3>2. Erhebung und Speicherung personenbezogener Daten sowie Art und Zweck der Verwendung</h3>
+    <p><strong>a) Beim Besuch der Website</strong></p>
+    <p>Beim Aufrufen unserer Website werden automatisch Informationen durch den Browser Ihres Endgeräts an unseren Server übermittelt. Diese Informationen werden temporär in sogenannten Logfiles gespeichert:</p>
+    <ul class="imp-ul"><li>IP-Adresse</li><li>Datum und Uhrzeit des Zugriffs</li><li>Name und URL der abgerufenen Datei</li><li>Referrer-URL</li><li>verwendeter Browser und ggf. Betriebssystem</li></ul>
+    <p>Zweck der Verarbeitung:</p>
+    <ul class="imp-ul"><li>Sicherstellung eines reibungslosen Verbindungsaufbaus</li><li>Gewährleistung der Systemsicherheit und -stabilität</li></ul>
+    <p>Rechtsgrundlage: Art. 6 Abs. 1 lit. f DSGVO</p>
+    <p><strong>b) Kontaktformular</strong></p>
+    <p>Auf unserer Website steht Ihnen ein Kontaktformular zur Verfügung. Dabei werden folgende Daten erhoben:</p>
+    <ul class="imp-ul"><li>Name</li><li>E-Mail-Adresse</li><li>Telefonnummer (optional)</li><li>Nachricht</li></ul>
+    <p>Zusätzlich können folgende Daten automatisch gespeichert werden:</p>
+    <ul class="imp-ul"><li>IP-Adresse</li><li>Datum und Uhrzeit der Anfrage</li></ul>
+    <p>Zweck der Verarbeitung:</p>
+    <ul class="imp-ul"><li>Bearbeitung Ihrer Anfrage</li><li>Kontaktaufnahme und Kommunikation</li></ul>
+    <p>Rechtsgrundlage:<br>Art. 6 Abs. 1 lit. b DSGVO (vorvertragliche Maßnahmen) oder Art. 6 Abs. 1 lit. f DSGVO</p>
+    <p><strong>c) Kontaktaufnahme per E-Mail</strong></p>
+    <p>Bei einer Kontaktaufnahme per E-Mail werden die von Ihnen übermittelten personenbezogenen Daten gespeichert.</p>
+    <p>Zweck:</p>
+    <ul class="imp-ul"><li>Bearbeitung Ihrer Anfrage</li><li>Kommunikation</li></ul>
+    <p>Rechtsgrundlage: Art. 6 Abs. 1 lit. b DSGVO oder lit. f DSGVO</p>
+    <p><strong>d) Verarbeitung im Rahmen der Hausverwaltung</strong></p>
+    <p>Im Rahmen unserer Tätigkeit (WEG-Verwaltung, Mietverwaltung, Sondereigentumsverwaltung, Hausmeisterservice und Gartenpflege) verarbeiten wir personenbezogene Daten von:</p>
+    <ul class="imp-ul"><li>Eigentümern</li><li>Mietern</li><li>Dienstleistern</li></ul>
+    <p>Dies umfasst insbesondere:</p>
+    <ul class="imp-ul"><li>Stammdaten (Name, Adresse, Kontaktdaten)</li><li>Vertragsdaten</li><li>Zahlungs- und Abrechnungsdaten</li><li>Kommunikationsdaten</li></ul>
+    <p>Zweck:</p>
+    <ul class="imp-ul"><li>Verwaltung von Immobilien</li><li>Durchführung von Vertragsverhältnissen</li><li>Organisation von Dienstleistungen (z. B. Hausmeisterservice, Gartenpflege)</li></ul>
+    <p>Rechtsgrundlage: Art. 6 Abs. 1 lit. b DSGVO</p>
+    <h3>3. Weitergabe von Daten</h3>
+    <p>Eine Weitergabe Ihrer personenbezogenen Daten erfolgt nur, wenn:</p>
+    <ul class="imp-ul"><li>dies zur Vertragsabwicklung erforderlich ist (z. B. an Handwerksbetriebe)</li><li>eine gesetzliche Verpflichtung besteht</li><li>Sie eingewilligt haben</li></ul>
+    <h3>4. Hosting und E-Mail-Dienste</h3>
+    <p>Unsere Website und E-Mail-Kommunikation werden über den Anbieter Strato AG bereitgestellt.</p>
+    <p>Mit dem Anbieter besteht ein Vertrag zur Auftragsverarbeitung gemäß Art. 28 DSGVO.</p>
+    <p>Die Verarbeitung erfolgt auf Servern in Deutschland.</p>
+    <h3>5. Cookies</h3>
+    <p>Unsere Website verwendet ausschließlich technisch notwendige Cookies.</p>
+    <p>Diese sind erforderlich, um die Website korrekt darzustellen und grundlegende Funktionen zu gewährleisten.</p>
+    <p>Rechtsgrundlage: § 25 TTDSG i. V. m. Art. 6 Abs. 1 lit. f DSGVO</p>
+    <h3>6. Analyse-Tools</h3>
+    <p>Es werden keine Tracking- oder Analyse-Tools eingesetzt.</p>
+    <h3>7. Speicherdauer</h3>
+    <p>Personenbezogene Daten werden nur so lange gespeichert, wie dies zur Erreichung der genannten Zwecke erforderlich ist oder gesetzliche Aufbewahrungsfristen bestehen.</p>
+    <h3>8. Ihre Rechte</h3>
+    <p>Sie haben das Recht:</p>
+    <ul class="imp-ul"><li>Auskunft gemäß Art. 15 DSGVO</li><li>Berichtigung gemäß Art. 16 DSGVO</li><li>Löschung gemäß Art. 17 DSGVO</li><li>Einschränkung der Verarbeitung gemäß Art. 18 DSGVO</li><li>Datenübertragbarkeit gemäß Art. 20 DSGVO</li><li>Widerspruch gemäß Art. 21 DSGVO</li></ul>
+    <p>Außerdem haben Sie das Recht, sich bei einer Datenschutzaufsichtsbehörde zu beschweren.</p>
+    <h3>9. Datensicherheit</h3>
+    <p>Wir verwenden geeignete technische und organisatorische Maßnahmen, um Ihre Daten gegen Verlust, Manipulation oder unbefugten Zugriff zu schützen.</p>
+    <h3>10. Aktualität und Änderung dieser Datenschutzerklärung</h3>
+    <p>Diese Datenschutzerklärung ist aktuell gültig und hat den Stand: [01.05.2026].</p>
   </div>
 </template>
 <template id="tpl-weg">
@@ -1696,7 +1757,7 @@ $$('[data-dialog]').forEach(b => b.addEventListener('click', e => {
   dlgTrigger = b; root.classList.add('dlg-open'); dlg.showModal();
 }));
 // Direktlink …/#impressum öffnet das Impressum
-const openHashDialog = () => { if (location.hash === '#impressum') $('a[data-dialog="tpl-impressum"]').click(); };
+const openHashDialog = () => { const t = { '#impressum': 'tpl-impressum', '#datenschutz': 'tpl-datenschutz' }[location.hash]; if (t) $(`a[data-dialog="${t}"]`).click(); };
 w.addEventListener('hashchange', openHashDialog);
 setTimeout(openHashDialog, 0);
 let dlgTrigger = null;
