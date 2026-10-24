@@ -221,6 +221,7 @@ button.link{background-color:transparent;padding-inline:0}
 .hero-dim{position:absolute;inset:0;background:var(--green-3);opacity:0;pointer-events:none}
 .hero-in{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:space-between;padding:calc(var(--nav-h) + env(safe-area-inset-top,0px) + clamp(28px,6vh,72px)) var(--pad) calc(clamp(16px,2.4vh,28px) + env(safe-area-inset-bottom,0px))}
 .hero-top{max-width:40rem}
+@media (min-width:641px){.hero-top{margin-block:auto}}
 .hero-kicker{margin:0 0 22px;opacity:.85}
 .hero-claim{font-size:clamp(1.75rem,2.9vw,2.9rem);line-height:1.08;margin:0 0 32px;text-wrap:balance}
 .hero-claim .ln{display:block;overflow:hidden;padding-bottom:.08em}
@@ -742,8 +743,6 @@ legend:focus{outline:none}
     </div>
     <div class="hero-bottom" id="heroBottom">
       <h1 class="hero-title" id="hero-title"><span class="sr-only">Immobilienverwaltung in Köln</span>
-        <span class="ht-line" aria-hidden="true"><span class="fit" data-fit="h">Immobilien</span></span>
-        <span class="ht-line" aria-hidden="true"><span class="fit" data-fit="h">Verwaltung</span></span>
       </h1>
       <div class="hero-foot mono fade"><span>Immobilienverwaltung in Köln</span><span>Leonhardsgasse 4 · 50859 Köln</span><span class="scroll-cue"><i></i>Scrollen</span></div>
     </div>
