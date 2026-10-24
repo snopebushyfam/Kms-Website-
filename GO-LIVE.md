@@ -45,6 +45,6 @@ Bildrichtung: echte Kölner Objekte (Altbau, Nachkriegsbau, Neubau, Wohn- und Ge
 ## 4. Technisch vor dem Go-live
 
 - **Pflicht:** Finales OG-Bild in 1200 × 630 erstellen und unter https://kms.koeln/og-image.jpg bereitstellen (die im Meta-Tag verwendete URL). Offen, bis die Datei dort tatsächlich abrufbar ist.
-- Impressum und Datenschutzerklärung prüfen; die Datenschutzerklärung muss den gewählten Formular-Dienst nennen.
+- Impressum ist eingebaut (Fenster, Direktlink #impressum). Datenschutzerklärung fehlt noch als eigener Text; die Datenschutzerklärung muss den gewählten Formular-Dienst nennen.
 - Google Fonts werden extern geladen. Für DSGVO-Sicherheit die Schriften lokal hosten (Montserrat, Newsreader, IBM Plex Mono).
 - Canonical und Links zeigen auf https://kms.koeln/ – nur beim endgültigen Domain-Umzug gültig.

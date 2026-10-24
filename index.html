@@ -464,6 +464,9 @@ dialog::backdrop{background:rgba(22,23,25,.86)}
 .dlg-in{padding:clamp(28px,5vw,64px)}
 .dlg h2{font:400 clamp(2rem,3.4vw,3rem)/1.05 var(--serif);letter-spacing:-.015em;margin-bottom:18px;padding-right:56px}
 .dlg h3{font:500 11px/1.4 var(--display);letter-spacing:.16em;text-transform:uppercase;color:var(--muted);margin:34px 0 8px}
+.imp p{margin:0 0 14px;color:var(--ink-2);line-height:1.65}
+.imp strong{font-weight:500;color:var(--ink)}
+.imp a{color:var(--ink)}
 .dlg li{padding:10px 0;border-bottom:1px solid var(--line)}
 .dlg-close{position:absolute;top:16px;right:16px;z-index:2;background:var(--paper)}
 
@@ -1091,7 +1094,7 @@ legend:focus{outline:none}
     <div class="f-bottom mono">
       <span>© 2026 KMS Immobilienverwaltung, Köln</span>
       <span class="f-credit">Powered by <a href="https://bushyfam.studio" target="_blank" rel="noopener">Bushyfam Studios</a></span>
-      <span><a href="https://kms.koeln/impressum/">Impressum</a> &nbsp; <a href="https://kms.koeln/datenschutzerklaerung/">Datenschutz</a></span>
+      <span><a href="#impressum" data-dialog="tpl-impressum">Impressum</a> &nbsp; <a href="https://kms.koeln/datenschutzerklaerung/">Datenschutz</a></span>
     </div>
   </div>
 </footer>
@@ -1116,6 +1119,30 @@ legend:focus{outline:none}
   <div class="dlg-in" id="dlgIn"></div>
 </dialog>
 
+<template id="tpl-impressum">
+  <h2 id="dlgTitle">Impressum</h2>
+  <p class="lead">Angaben gemäß § 5 Digitale-Dienste-Gesetz (DDG)</p>
+  <div class="imp">
+    <p>KMS Immobilienverwaltung<br>Inhaber: Serkan Yetim<br>Einzelunternehmen</p>
+    <p>Leonhardsgasse 4<br>50859 Köln<br>Deutschland</p>
+    <h3>Kontakt</h3>
+    <p>Telefon: <a href="tel:+4922125976831">+49 (0)221 25976831</a><br>Mobil: <a href="tel:+491721703898">+49 (0)172 1703898</a><br>E-Mail: <a href="mailto:info@kms.koeln">info@kms.koeln</a><br>Internet: <a href="https://www.kms.koeln">www.kms.koeln</a></p>
+    <h3>Gewerberechtliche Angaben</h3>
+    <p><strong>Tätigkeit:</strong><br>Wohnungseigentumsverwaltung (WEG-Verwaltung) und Mietverwaltung für Dritte.</p>
+    <p><strong>Gewerbeerlaubnis:</strong><br>Erlaubnis als Wohnimmobilienverwalter gemäß § 34c Abs. 1 Satz 1 Nr. 4 Gewerbeordnung (GewO) liegt vor.</p>
+    <p><strong>Zuständige Aufsichtsbehörde:</strong><br>Stadt Köln<br>Amt für öffentliche Ordnung – Gewerbeabteilung<br>Willy-Brandt-Platz 3<br>50679 Köln<br>Deutschland</p>
+    <h3>Berufliche Qualifikation</h3>
+    <p>Zertifizierter Immobilienverwalter (IHK)</p>
+    <h3>Berufshaftpflichtversicherung</h3>
+    <p>Allianz Versicherungs-AG</p>
+    <h3>Steuerliche Angaben</h3>
+    <p>Finanzamt: Köln-West<br>Steuernummer: 223/5330/5063</p>
+    <p>Kleinunternehmer gemäß § 19 Umsatzsteuergesetz (UStG).</p>
+    <p>Eine Umsatzsteuer-Identifikationsnummer gemäß § 27a UStG wurde beantragt und wird nach Erteilung ergänzt.</p>
+    <h3>Verbraucherstreitbeilegung</h3>
+    <p>Wir sind weder bereit noch verpflichtet, an Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle teilzunehmen.</p>
+  </div>
+</template>
 <template id="tpl-weg">
   <h2 id="dlgTitle">WEG-Verwaltung</h2>
   <p class="lead">Kaufmännisch, technisch und rechtlich aus einer Hand, nach aktuellem Wohnungseigentumsgesetz.</p>
@@ -1659,11 +1686,16 @@ function parUpdate() {
 
 /* Leistungs-Dialog */
 const dlg = $('#dlg'), dlgIn = $('#dlgIn');
-$$('[data-dialog]').forEach(b => b.addEventListener('click', () => {
+$$('[data-dialog]').forEach(b => b.addEventListener('click', e => {
+  e.preventDefault();
   dlgIn.innerHTML = '';
   dlgIn.appendChild($('#' + b.dataset.dialog).content.cloneNode(true));
   dlgTrigger = b; root.classList.add('dlg-open'); dlg.showModal();
 }));
+// Direktlink …/#impressum öffnet das Impressum
+const openHashDialog = () => { if (location.hash === '#impressum') $('a[data-dialog="tpl-impressum"]').click(); };
+w.addEventListener('hashchange', openHashDialog);
+setTimeout(openHashDialog, 0);
 let dlgTrigger = null;
 [dlg, $('#lb')].forEach(dl => {
   dl.addEventListener('click', e => {
